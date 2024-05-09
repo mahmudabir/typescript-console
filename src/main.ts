@@ -1,21 +1,21 @@
-import { readFileSync, writeFileSync } from "fs";
+import { writeFileSync } from "fs";
 import { data } from "./payload";
 
 const payload = data;
 
 const filter = {
-    // cabinClasses: ["M", "H", "W"],
-    // fareBrand: "Flexi",
     cabinClasses: ["Y", "B", "E"],
-    fareBrand: "Standard",
+    fareBrand: "Flexi",
+    // cabinClasses: ["M", "H", "W"],
+    // fareBrand: "Standard",
 }
 
 // console.log(payload)
 
 let filteredPayload = payload.Payload.filter(x =>
-    x.Onwards.some(y => filter.cabinClasses.includes(y.CabinClass))
+    x.Onwards.every(y => !y['CabinClass'] || y['CabinClass'] && filter.cabinClasses.includes(y['CabinClass']))
     &&
-    x.Returns.some(y => filter.cabinClasses.includes(y.CabinClass))
+    x.Returns.every(y => !y['CabinClass'] || y['CabinClass'] && filter.cabinClasses.includes(y['CabinClass']))
     &&
     x.BrandedFareInfoes.map(y => y.FareBrand.toUpperCase().includes(filter.fareBrand.toUpperCase()))
 );
