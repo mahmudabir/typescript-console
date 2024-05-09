@@ -1,14 +1,16 @@
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { data } from "./payload";
 
 const payload = data;
 
 const filter = {
+    // cabinClasses: ["M", "H", "W"],
+    // fareBrand: "Flexi",
     cabinClasses: ["Y", "B", "E"],
-    fareBrand: "Flexi"
+    fareBrand: "Standard",
 }
 
-console.log(payload)
+// console.log(payload)
 
 let filteredPayload = payload.Payload.filter(x =>
     x.Onwards.some(y => filter.cabinClasses.includes(y.CabinClass))
@@ -18,4 +20,10 @@ let filteredPayload = payload.Payload.filter(x =>
     x.BrandedFareInfoes.map(y => y.FareBrand.toUpperCase().includes(filter.fareBrand.toUpperCase()))
 );
 
-console.log(filteredPayload)
+console.log(filteredPayload.length)
+
+const filteredPayloadString = JSON.stringify(filteredPayload, null, 4)
+
+writeFileSync('filteredData.json', filteredPayloadString, 'utf8')
+
+
