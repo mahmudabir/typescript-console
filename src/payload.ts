@@ -1,5 +1,4 @@
-export let data = 
-{
+export let data = {
   "RequestTime": "2024-05-08 05:44:31 PM",
   "ResponseTime": "2024-05-08 05:44:48 PM",
   "RequestURL": "api/AirTravel/SearchAir",
