@@ -1,19 +1,17 @@
-# NodeJS + TypeScript starter project
+# bun-ts-console
 
-- Hot-reload
-- Linting with ESLint
-- Testing with Jest
-- Debugging enabled
+To install dependencies:
 
-## Scripts
+```bash
+bun install
+```
 
-- `yarn build` to lint and build the app
-- `yarn dev` to start the app with hot-reload
-- `yarn start` to start the app without hot-reload
-- `yarn test` to run all test files
+To run:
 
----
+```bash
+bun run index.ts
+```
 
-As seen in [NodeJS Console App with TypeScript, linting and testing](https://phillcode.io/nodejs-console-app-with-typescript-linting-and-testing).
+This project was created using `bun init` in bun v1.1.12. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
 
-Visit [phillcode.io](https://phillcode.io/) for more articles on software development, management and leadership.
+<a href="https://blog.khophi.co/switch-to-using-bun-in-angular">Angular (Node.js to Bun)</a>

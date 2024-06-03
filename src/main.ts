@@ -1,13 +1,12 @@
-import { writeFileSync } from "fs";
 import { data } from "./payload";
 
 const payload = data;
 
 const filter = {
-    cabinClasses: ["Y", "B", "E"],
-    fareBrand: "Flexi",
-    // cabinClasses: ["M", "H", "W"],
-    // fareBrand: "Standard",
+    // cabinClasses: ["Y", "B", "E"],
+    // fareBrand: "Flexi",
+    cabinClasses: ["M", "H", "W"],
+    fareBrand: "Standard",
 }
 
 // console.log(payload)
@@ -24,6 +23,4 @@ console.log(filteredPayload.length)
 
 const filteredPayloadString = JSON.stringify(filteredPayload, null, 4)
 
-writeFileSync('filteredData.json', filteredPayloadString, 'utf8')
-
-
+Bun.write('src/filteredData.json', filteredPayloadString);
